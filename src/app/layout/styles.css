@@ -16,3 +16,9 @@ body {
 .ui.main.container {
   margin-top: 7em;
 }
+
+.photo12 {
+  width: 20px !important;
+  height: 20px !important;
+  object-fit: cover !important;
+}
