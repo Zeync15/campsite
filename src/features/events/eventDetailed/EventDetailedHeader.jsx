@@ -12,26 +12,20 @@ const eventContentStyle = {
   height: "auto",
 };
 
-export default function EventDetailedHeader() {
+export default function EventDetailedHeader({ event }) {
   return (
     <Segment.Group>
-      <Segment attached='top' style={{ padding: "0" }}>
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-          }
-          fluid
-          style={eventImageStyle}
-        />
+      <Segment attached='top' style={{ padding: "0", border: "none" }}>
+        <Image src={event.photo} fluid style={eventImageStyle} />
       </Segment>
 
       <Segment style={eventContentStyle}>
         <Item.Group>
           <Item>
             <Item.Content>
-              <Header size='huge' content='Event Title' />
+              <Header size='huge' content={event.title} />
               <p style={{ marginTop: 3, marginLeft: 2 }}>
-                Hosted by <strong>Bob</strong>
+                Hosted by <strong>{event.hostedBy}</strong>
               </p>
             </Item.Content>
           </Item>
@@ -42,7 +36,12 @@ export default function EventDetailedHeader() {
         <Button>Cancel My Place</Button>
         <Button color='teal'>JOIN THIS EVENT</Button>
 
-        <Button as={Link} to={`/manage/`} color='orange' floated='right'>
+        <Button
+          as={Link}
+          to={`/manage/${event.id}`}
+          color='orange'
+          floated='right'
+        >
           Manage Event
         </Button>
       </Segment>
