@@ -37,3 +37,11 @@ body {
   font-size: 4em;
   text-shadow: 0.5px 0.5px #000000;
 }
+
+.ui.inverted.menu .active.item {
+  background: none !important;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}

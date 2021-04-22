@@ -27,6 +27,16 @@ export default function EventDetailedHeader({ event }) {
               <p style={{ marginTop: 3, marginLeft: 2 }}>
                 Hosted by <strong>{event.hostedBy}</strong>
               </p>
+              <p
+                style={{
+                  marginTop: 3,
+                  marginLeft: 2,
+                  color: "blue",
+                  textTransform: "uppercase",
+                }}
+              >
+                {event.category}
+              </p>
             </Item.Content>
           </Item>
         </Item.Group>

@@ -2,7 +2,7 @@ export const sampleData = [
   {
     id: "1",
     title: "Trip to Empire State building",
-    date: "2018-03-21",
+    date: new Date("2018-03-21"),
     category: "culture",
     photo:
       "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
@@ -28,7 +28,7 @@ export const sampleData = [
   {
     id: "2",
     title: "Trip to Punch and Judy Pub",
-    date: "2018-03-18",
+    date: new Date("2018-03-18"),
     category: "drinks",
     photo:
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",

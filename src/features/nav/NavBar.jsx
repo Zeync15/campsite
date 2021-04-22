@@ -1,17 +1,12 @@
-import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import React from "react";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { Button, Container, Icon, Menu } from "semantic-ui-react";
 import SignedInMenu from "./SignedInMenu";
 import SignedOutMenu from "./SignedOutMenu";
 
 export default function NavBar() {
-  const history = useHistory();
-  const [authenticated, setAuthenticated] = useState(false);
-
-  function handleSignOut() {
-    setAuthenticated(false);
-    history.push("/");
-  }
+  const { authenticated } = useSelector((state) => state.auth);
 
   return (
     <Menu inverted fixed='top'>
@@ -20,26 +15,13 @@ export default function NavBar() {
           <Icon name='accusoft' size='large' />
           CampSite
         </Menu.Item>
-        <Menu.Item
-          as={NavLink}
-          style={{ textDecoration: "none" }}
-          to='/events'
-          name='Events'
-        />
+        <Menu.Item as={NavLink} to='/events' name='Events' />
         {authenticated && (
-          <Menu.Item
-            as={NavLink}
-            style={{ textDecoration: "none" }}
-            to='/createEvent'
-          >
+          <Menu.Item as={NavLink} to='/createEvent'>
             <Button positive inverted content='Create Event' />
           </Menu.Item>
         )}
-        {authenticated ? (
-          <SignedInMenu signOut={handleSignOut} />
-        ) : (
-          <SignedOutMenu setAuthenticated={setAuthenticated} />
-        )}
+        {authenticated ? <SignedInMenu /> : <SignedOutMenu />}
       </Container>
     </Menu>
   );

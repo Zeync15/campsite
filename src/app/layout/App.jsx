@@ -6,12 +6,14 @@ import EventDetailedPage from "../../features/events/eventDetailed/EventDetailed
 import EventForm from "../../features/events/eventForm/EventForm";
 import NavBar from "../../features/nav/NavBar";
 import HomePage from "../../features/home/HomePage";
+import ModalManager from "../common/modals/ModalManager";
 
 export default function App() {
   const { key } = useLocation();
 
   return (
     <>
+      <ModalManager />
       <Route exact path='/' component={HomePage} />
       <Route
         path={"/(.+)"}
