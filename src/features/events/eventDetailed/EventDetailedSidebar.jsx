@@ -1,7 +1,8 @@
 import React from "react";
-import { Image, Item, Segment } from "semantic-ui-react";
+import { Item, Segment } from "semantic-ui-react";
+import EventDetailedMap from "./EventDetailedMap";
 
-export default function EventDetailedSidebar({ attendees }) {
+export default function EventDetailedSidebar({ attendees, event }) {
   return (
     <>
       <Segment
@@ -14,15 +15,8 @@ export default function EventDetailedSidebar({ attendees }) {
       >
         Location
       </Segment>
-      <Segment attached style={{ padding: "0", border: "none" }}>
-        {/* NEED TO BE CHANGE TO MAP */}
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-          }
-          fluid
-        />
-      </Segment>
+
+      <EventDetailedMap latLng={event.venue.latLng} />
 
       <Segment
         textAlign='center'

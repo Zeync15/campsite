@@ -8,8 +8,20 @@ export const sampleData = [
       "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: "NY, USA",
-    venue: "Empire State Building, 5th Avenue, New York, NY, USA",
+    city: {
+      address: "NY, USA",
+      latLng: {
+        lat: 40.7484405,
+        lng: -73.98566440000002,
+      },
+    },
+    venue: {
+      address: "Empire State Building, 5th Avenue, New York, NY, USA",
+      latLng: {
+        lat: 40.7484405,
+        lng: -73.98566440000002,
+      },
+    },
     hostedBy: "Bob",
     hostPhotoURL: "https://randomuser.me/api/portraits/men/20.jpg",
     attendees: [
@@ -34,8 +46,20 @@ export const sampleData = [
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: "London, UK",
-    venue: "Punch & Judy, Henrietta Street, London, UK",
+    city: {
+      address: "NY, USA",
+      latLng: {
+        lat: 40.7484405,
+        lng: -73.98566440000002,
+      },
+    },
+    venue: {
+      address: "Empire State Building, 5th Avenue, New York, NY, USA",
+      latLng: {
+        lat: 40.7484405,
+        lng: -73.98566440000002,
+      },
+    },
     hostedBy: "Tom",
     hostPhotoURL: "https://randomuser.me/api/portraits/men/22.jpg",
     attendees: [

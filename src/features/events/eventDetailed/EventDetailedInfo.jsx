@@ -21,7 +21,7 @@ export default function EventDetailedInfo({ event }) {
             <Icon name='marker' size='large' color='teal' />
           </Grid.Column>
           <Grid.Column width={15}>
-            <span>{event.venue}</span>
+            <span>{event.venue.address}</span>
           </Grid.Column>
         </Grid>
       </Segment>
