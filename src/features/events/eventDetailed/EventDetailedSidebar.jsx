@@ -20,7 +20,7 @@ export default function EventDetailedSidebar({ attendees, event }) {
 
       <Segment
         textAlign='center'
-        style={{ border: "none" }}
+        style={{ border: "none", marginTop: "2em" }}
         attached='top'
         secondary
         inverted
