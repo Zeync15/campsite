@@ -105,7 +105,7 @@ export default function EventForm({ match, history }) {
               placeholder='Category'
               options={categoryData}
             />
-            <MyTextInput name='photo' placeholder='Photo' />
+            <MyTextInput name='photo' placeholder='PhotoURL ONLY!!!' />
             <br />
             <Header color='teal' content='Event Details' />
             <MyDateInput
