@@ -43,7 +43,7 @@ export default function EventListItem({ event }) {
       <Segment>
         <span>
           <Icon name='clock' /> {format(event.date, "dd MMMM yyyy, h:mm a")}
-          <Icon name='marker' style={{ marginLeft: 20 }} />{" "}
+          <Icon name='marker' style={{ marginLeft: 20 }} />
           {event.venue.address}
         </span>
       </Segment>

@@ -42,7 +42,7 @@ export default function SignedInMenu() {
           <Dropdown.Item
             as={Link}
             to='/account'
-            text='My account'
+            text='Change Password'
             icon='settings'
           />
           <Dropdown.Item onClick={handleSignOut} text='Sign Out' icon='power' />
