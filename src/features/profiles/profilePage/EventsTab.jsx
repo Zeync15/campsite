@@ -3,7 +3,7 @@ import { Card, Grid, Header, Image, Tab } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useFirestoreCollection from "../../../app/hooks/useFirestoreCollection";
-import { getuserEventsQuery } from "../../../app/firestore/firestoreService";
+import { getUserEventsQuery } from "../../../app/firestore/firestoreService";
 import { listenToUserEvents } from "../profileActions";
 import { format } from "date-fns";
 
@@ -14,7 +14,7 @@ export default function EventsTab({ profile }) {
   const { loading } = useSelector((state) => state.async);
 
   useFirestoreCollection({
-    query: () => getuserEventsQuery(activeTab, profile.id),
+    query: () => getUserEventsQuery(activeTab, profile.id),
     data: (events) => dispatch(listenToUserEvents(events)),
     deps: [dispatch, activeTab, profile.id],
   });
