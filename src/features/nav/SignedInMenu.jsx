@@ -13,6 +13,7 @@ export default function SignedInMenu() {
     try {
       history.push("/");
       await signOutFirebase();
+      window.location.reload();
     } catch (error) {
       toast.error(error.mesage);
     }

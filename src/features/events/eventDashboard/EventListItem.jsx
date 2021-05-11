@@ -4,8 +4,11 @@ import { Button, Icon, Item, Label, List, Segment } from "semantic-ui-react";
 import EventListAttendee from "./EventListAttendee";
 import { format } from "date-fns";
 import { deleteEventInFirestore } from "../../../app/firestore/firestoreService";
+import { useSelector } from "react-redux";
 
 export default function EventListItem({ event }) {
+  const { currentUser } = useSelector((state) => state.auth);
+
   return (
     <Segment.Group>
       <Segment>
@@ -56,12 +59,14 @@ export default function EventListItem({ event }) {
       </Segment>
       <Segment clearing>
         <div>{event.description}</div>
-        <Button
-          onClick={() => deleteEventInFirestore(event.id)}
-          color='red'
-          floated='right'
-          content='Delete'
-        />
+        {currentUser?.uid === event.hostUid && (
+          <Button
+            onClick={() => deleteEventInFirestore(event.id)}
+            color='red'
+            floated='right'
+            content='Delete'
+          />
+        )}
         <Button
           as={Link}
           to={`/events/${event.id}`}
