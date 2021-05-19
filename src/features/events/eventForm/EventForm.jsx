@@ -1,9 +1,9 @@
 /* global google */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Confirm, Header, Segment } from "semantic-ui-react";
 import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { listenToSelectedEvent } from "../eventActions";
+import { clearSelectedEvent, listenToSelectedEvent } from "../eventActions";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import MyTextInput from "../../../app/common/form/MyTextInput";
@@ -22,12 +22,17 @@ import LoadingComponent from "../../../app/layout/LoadingComponent";
 import useFirestoreDoc from "../../../app/hooks/useFirestoreDoc";
 import { toast } from "react-toastify";
 
-export default function EventForm({ match, history }) {
+export default function EventForm({ match, history, location }) {
   const dispatch = useDispatch();
   const [loadingCancel, setLoadingCancel] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const { selectedEvent } = useSelector((state) => state.event);
   const { loading, error } = useSelector((state) => state.async);
+
+  useEffect(() => {
+    if (location.pathname !== "/createEvent") return;
+    dispatch(clearSelectedEvent());
+  }, [dispatch, location.pathname]);
 
   const initialValues = selectedEvent ?? {
     title: "",
@@ -66,7 +71,9 @@ export default function EventForm({ match, history }) {
   }
 
   useFirestoreDoc({
-    shouldExecute: !!match.params.id,
+    shouldExecute:
+      match.params.id !== selectedEvent?.id &&
+      location.pathname !== "/createEvent",
     query: () => listenToEventFromFirestore(match.params.id),
     data: (event) => dispatch(listenToSelectedEvent(event)),
     deps: [match.params.id, dispatch],
@@ -79,6 +86,7 @@ export default function EventForm({ match, history }) {
   return (
     <Segment clearing>
       <Formik
+        enableReinitialize
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting }) => {
@@ -113,6 +121,7 @@ export default function EventForm({ match, history }) {
               showTimeSelect
               timeCaption='time'
               dateFormat='dd MMMM yyyy, h:mm a'
+              autoComplete='off'
             />
             <MyPlaceInput name='city' placeholder='City' />
             <MyPlaceInput

@@ -20,7 +20,7 @@ export default function EventDetailedMap({ latLng }) {
     >
       <div style={{ height: 300, width: "100%" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyDCZZm-6IgPCn0h1YHSfcrRtVPk4aR6svM" }}
+          bootstrapURLKeys={{ key: "AIzaSyDegnzCThJMr9K-qVYZub-t6WzoqtD2Elw" }}
           center={latLng}
           zoom={zoom}
         >
